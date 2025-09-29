@@ -593,6 +593,109 @@ const HomePage = () => {
         </div>
       </section>
 
+            {/* FAQ Section */}
+      <section className="py-20 bg-card">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-muted-foreground">Common questions about my work and expertise</p>
+          </div>
+          <div className="max-w-4xl mx-auto space-y-4">
+            <details className="bg-background border border-border rounded-xl p-6 group">
+              <summary className="flex items-center justify-between cursor-pointer font-semibold text-foreground">
+                <span>What are your main research interests?</span>
+                <svg
+                  className="w-5 h-5 text-muted-foreground group-open:rotate-180 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 text-muted-foreground leading-relaxed">
+                My primary research focuses on data science applications in education, machine learning algorithms,
+                image processing, and business analytics. I'm particularly interested in how AI can improve educational
+                outcomes.
+              </div>
+            </details>
+            <details className="bg-background border border-border rounded-xl p-6 group">
+              <summary className="flex items-center justify-between cursor-pointer font-semibold text-foreground">
+                <span>Do you offer consulting services?</span>
+                <svg
+                  className="w-5 h-5 text-muted-foreground group-open:rotate-180 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 text-muted-foreground leading-relaxed">
+                Yes, I provide consulting services in data science, machine learning implementation, educational
+                technology, and research methodology. I work with both academic institutions and industry partners.
+              </div>
+            </details>
+            <details className="bg-background border border-border rounded-xl p-6 group">
+              <summary className="flex items-center justify-between cursor-pointer font-semibold text-foreground">
+                <span>Are you available for collaborative research?</span>
+                <svg
+                  className="w-5 h-5 text-muted-foreground group-open:rotate-180 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="mt-4 text-muted-foreground leading-relaxed">
+                I'm always open to collaborative research opportunities, especially in areas related to educational
+                technology, data science applications, and machine learning. Feel free to reach out to discuss potential
+                partnerships.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Preview */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Let's Connect</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              I'm always open to discussing research opportunities, academic collaborations, or sharing insights about
+              data science and education.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Link
+                href="/contact"
+                className="btn-primary inline-flex items-center justify-center px-8 py-4 font-medium text-lg rounded-lg hover:scale-105 transition-all duration-300"
+              >
+                Get In Touch
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <a
+                href="mailto:shohel.arman@diu.edu.bd"
+                className="inline-flex items-center justify-center px-8 py-4 border border-border text-foreground font-medium text-lg rounded-lg hover:bg-muted hover:scale-105 transition-all duration-300"
+              >
+                Email Directly
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
 
 
