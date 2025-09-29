@@ -105,12 +105,12 @@ const HomePage = () => {
 
                 {/* Floating Stats Cards */}
                 <div className="absolute -bottom-6 -left-6 bg-background/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-xl hidden md:block group-hover:translate-y-1 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-accent">8+</div>
+                  <div className="text-3xl font-bold text-gradient">8+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
 
                 <div className="absolute -top-6 -right-6 bg-background/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-xl hidden md:block group-hover:translate-y-1 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-accent">PhD</div>
+                  <div className="text-3xl font-bold text-gradient">PhD</div>
                   <div className="text-sm text-muted-foreground">Researcher</div>
                 </div>
               </div>
