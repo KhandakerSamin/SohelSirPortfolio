@@ -1,6 +1,22 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Prevent theme flash on page load - MUST BE AT TOP */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Remove all transitions during initial load to prevent flash */
+html.loading,
+html.loading * {
+  transition: none !important;
+  animation: none !important;
+}
+
 :root {
   /* Light theme colors - F5F5F0 background */
   --background: #F5F5F0;
@@ -313,17 +329,15 @@ body {
   animation: slideDown 0.3s ease-out forwards;
 }
 
-/* Smooth transitions - removed gradient transitions */
+/* Smooth transitions - NO transitions on color/background during theme change */
 * {
-  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-/* Only apply background transitions to specific elements */
-body,
+/* Only apply background transitions to interactive elements, NOT global theme colors */
 .card-hover,
-.btn-primary,
-[class*="bg-"] {
-  transition: background-color 0.4s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+.btn-primary {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 /* Enhanced hover effects */

@@ -1,33 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { useTheme } from "next-themes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDark, setIsDark] = useState(false)
+  const { theme, setTheme } = useTheme()
   const pathname = usePathname()
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme")
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      setIsDark(true)
-      document.documentElement.classList.add("dark")
-    }
-  }, [])
-
   const toggleTheme = () => {
-    setIsDark(!isDark)
-    if (!isDark) {
-      document.documentElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
-    }
+    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   const navLinks = [
@@ -44,14 +28,13 @@ const Navigation = () => {
       <Link
         key={link.href}
         href={link.href}
-        className={`relative px-2 py-1 font-medium transition-colors group
+        className={`relative px-2 py-1 font-medium group
           ${isActive ? "text-foreground font-semibold" : "text-muted-foreground hover:text-foreground"}`}
       >
         {link.name}
-        {/* Animated underline */}
         <span
           className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary
-            transition-all duration-500 ease-in-out
+            transition-all duration-300 ease-out
             ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
         />
       </Link>
@@ -59,12 +42,12 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="fixed top-0 py-2 left-0 right-0 z-50 bg-background/80 backdrop-blur-md ">
+    <nav className="fixed top-0 py-2 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-2xl font-extrabold tracking-tight text-foreground hover:text-primary transition-colors"
+            className="text-2xl font-extrabold tracking-tight text-foreground hover:text-primary"
           >
             Md. <span className="text-primary">Shohel</span> Arman
           </Link>
@@ -76,10 +59,10 @@ const Navigation = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+              className="p-2 rounded-lg bg-muted hover:bg-muted/80"
               aria-label="Toggle theme"
             >
-              {isDark ? (
+              {theme === "dark" ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -105,10 +88,10 @@ const Navigation = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+              className="p-2 rounded-lg bg-muted hover:bg-muted/80"
               aria-label="Toggle theme"
             >
-              {isDark ? (
+              {theme === "dark" ? (
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -131,7 +114,7 @@ const Navigation = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-all duration-300"
+              className="p-2"
               aria-label="Toggle menu"
             >
               <div className="w-6 h-6 flex flex-col justify-center items-center">
