@@ -82,7 +82,7 @@ const HomePage = () => {
                 {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/30 to-primary/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-60"></div> */}
 
                 {/* Image Container */}
-                <div className="relative w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm rounded-3xl border-2 border-border/50 overflow-hidden group-hover:border-primary/50 transition-all duration-500 shadow-2xl">
+                <div className="relative w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm rounded-3xl  overflow-hidden group-hover:border-primary/50 transition-all duration-500 shadow-2xl">
                   {/* Inner Border Accent */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl"></div>
 
@@ -93,7 +93,7 @@ const HomePage = () => {
                       alt="Md. Shohel Arman"
                       width={384}
                       height={384}
-                      className="rounded-2xl object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                      className="rounded-2xl object-cover w-full h-full group-hover:scale-103 transition-transform duration-500"
                       priority
                     />
                   </div>
@@ -126,9 +126,7 @@ const HomePage = () => {
         </div>
       </section>
 
-
       {/* Academic Excellence */}
-
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -695,9 +693,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-
-
 
     </div>
   )
