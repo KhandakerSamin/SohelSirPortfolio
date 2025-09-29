@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
 
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 z-10">
