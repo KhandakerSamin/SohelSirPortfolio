@@ -35,9 +35,9 @@ const HomePage = () => {
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Passionate about teaching, research, and advancing data science for real-world impact. Over eight
-                years of experience in academia, specializing in machine learning, data analysis, and educational
-                innovation.
+                Passionate about teaching, research, and driving data science innovation. Having
+                worked in academic for more than eight years, with a focus on machine learning,
+                data analysis, and educational innovation through creative teaching methods.
               </p>
 
               {/* CTA Buttons */}
@@ -591,7 +591,7 @@ const HomePage = () => {
         </div>
       </section>
 
-            {/* FAQ Section */}
+      {/* FAQ Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
