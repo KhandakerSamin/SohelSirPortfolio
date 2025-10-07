@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 
 const AboutPage = () => {
@@ -180,3 +181,5 @@ const AboutPage = () => {
 }
 
 export default AboutPage
+                      
+>>>>>>> f70dbbab76f1e66f2abda37c4e31824ace08896a
