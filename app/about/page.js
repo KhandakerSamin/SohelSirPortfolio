@@ -1,4 +1,4 @@
-"use client"
+"use client   "
 import Image from "next/image"
 
 const AboutPage = () => {
@@ -102,18 +102,22 @@ const AboutPage = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-4">My Story</h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I am an Assistant Professor and Lab In-charge at Daffodil International University (DIU), with over
-                    eight years of experience in teaching, research, and data science. My expertise spans software
-                    engineering, machine learning, image processing, and data visualization.
+                    I’m an Assistant Professor and Lab In-charge at Daffodil International University
+                    (DIU), with over eight years of experience in teaching, research, and data science.
+                    My work focuses on software engineering, machine learning, image processing, and
+                    data visualization — areas where technology meets creativity.
+
                   </p>
                   <p>
-                    Throughout my academic journey, I have been passionate about bridging the gap between theoretical
-                    knowledge and practical applications. I believe in the power of data-driven decision making and
-                    strive to equip my students with the skills needed to excel in today's technology-driven world.
+                    I’m passionate about turning theory into real-world impact and give students the skill
+                    sets required to succeed in today's technology-driven world. I'm a strong advocate
+                    of data-driven learning and make every session an interactive and hands-on learning
+                    experience.
                   </p>
                   <p>
-                    My research interests include machine learning applications in education, data analytics for
-                    business intelligence, and innovative teaching methodologies that enhance student learning outcomes.
+                    My research interests center on machine learning in education, data analytics for
+                    business intelligence and new teaching strategies that make learning more effective
+                    and enjoyable.
                   </p>
                 </div>
               </div>
@@ -157,8 +161,8 @@ const AboutPage = () => {
                       <div className="flex items-center gap-2 mb-2">
                         <span
                           className={`px-2 py-1 text-xs font-medium rounded-full ${event.type === "education"
-                              ? "bg-accent/20 text-accent-foreground"
-                              : "bg-primary/20 text-primary"
+                            ? "bg-accent/20 text-accent-foreground"
+                            : "bg-primary/20 text-primary"
                             }`}
                         >
                           {event.type === "education" ? "Education" : "Career"}
@@ -181,5 +185,5 @@ const AboutPage = () => {
 }
 
 export default AboutPage
-                      
->>>>>>> f70dbbab76f1e66f2abda37c4e31824ace08896a
+
+

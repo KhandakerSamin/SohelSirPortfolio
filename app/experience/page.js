@@ -308,7 +308,11 @@ const ExperiencePage = () => {
                                         Career Growth & Impact
                                    </h2>
                                    <p className="text-muted-foreground text-lg leading-relaxed">
-                                        My journey reflects a strong commitment to academic excellence, research innovation, and student development. From hands-on technical roles to leadership positions in academia, each experience has contributed to a comprehensive understanding of education, technology, and research methodology.
+                                        My career reflects a strong dedication to teaching, research, and the development of students. Each
+                                        role, from working in several technical positions through to leadership in academia, has enabled
+                                        me to become more knowledgeable about education, technology, and research, and the connection
+                                        between them, so that they work to create meaningful impact.
+
                                    </p>
                               </div>
                          </div>
