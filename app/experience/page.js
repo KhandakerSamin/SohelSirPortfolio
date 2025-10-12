@@ -4,8 +4,9 @@ import { Briefcase, GraduationCap, FlaskConical, BookOpen, Calendar, MapPin, Che
 
 const ExperiencePage = () => {
      const [expandedIndex, setExpandedIndex] = useState(null);
+     const [activeTab, setActiveTab] = useState('professional');
 
-     const experiences = [
+     const professionalExperiences = [
           {
                title: "Assistant Professor & Lab In-charge",
                company: "Daffodil International University (DIU)",
@@ -98,6 +99,94 @@ const ExperiencePage = () => {
           },
      ];
 
+     const industrialExperiences = [
+          {
+               title: "Senior Full-Stack Developer",
+               company: "TechVision Solutions",
+               period: "January 2024 - Present",
+               type: "Part-Time",
+               icon: Briefcase,
+               status: "current",
+               responsibilities: [
+                    "Architecting and developing scalable web applications using React, Node.js, and MongoDB",
+                    "Leading code reviews and implementing best practices across development teams",
+                    "Integrating third-party APIs and building RESTful services",
+                    "Optimizing application performance and implementing CI/CD pipelines",
+                    "Mentoring junior developers and conducting technical training sessions",
+               ],
+               skills: ["React.js", "Node.js", "MongoDB", "AWS", "Docker", "Git"],
+               technologies: ["TypeScript", "Express.js", "PostgreSQL", "Redis", "GraphQL"],
+          },
+          {
+               title: "Machine Learning Engineer",
+               company: "DataMinds AI Lab",
+               period: "June 2023 - Present",
+               type: "Part-Time",
+               icon: FlaskConical,
+               status: "current",
+               responsibilities: [
+                    "Developing and deploying machine learning models for predictive analytics",
+                    "Building data pipelines for automated model training and evaluation",
+                    "Implementing computer vision solutions using TensorFlow and PyTorch",
+                    "Collaborating with data scientists on feature engineering and model optimization",
+                    "Creating APIs for ML model integration with production systems",
+               ],
+               skills: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy"],
+               technologies: ["Keras", "OpenCV", "FastAPI", "Jupyter", "MLflow"],
+          },
+          {
+               title: "DevOps Engineer",
+               company: "CloudScale Systems",
+               period: "March 2022 - December 2023",
+               type: "Contract",
+               icon: Briefcase,
+               status: "past",
+               responsibilities: [
+                    "Managed cloud infrastructure on AWS and Azure platforms",
+                    "Automated deployment processes using Jenkins, GitHub Actions, and Terraform",
+                    "Implemented containerization strategies with Docker and Kubernetes",
+                    "Set up monitoring and logging solutions using Prometheus and ELK stack",
+                    "Reduced deployment time by 60% through infrastructure automation",
+               ],
+               skills: ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform", "Linux"],
+               technologies: ["Ansible", "Prometheus", "Grafana", "Nginx", "GitLab CI"],
+          },
+          {
+               title: "Backend Developer",
+               company: "FinTech Innovations Ltd.",
+               period: "August 2020 - February 2022",
+               type: "Full-Time",
+               icon: Briefcase,
+               status: "past",
+               responsibilities: [
+                    "Developed secure payment processing systems and financial APIs",
+                    "Implemented microservices architecture for scalable backend systems",
+                    "Designed and optimized database schemas for high-traffic applications",
+                    "Ensured PCI-DSS compliance and implemented security best practices",
+                    "Collaborated with frontend teams to deliver seamless user experiences",
+               ],
+               skills: ["Java", "Spring Boot", "PostgreSQL", "Microservices", "Redis", "RabbitMQ"],
+               technologies: ["Maven", "JUnit", "OAuth 2.0", "Swagger", "Git"],
+          },
+          {
+               title: "Mobile App Developer",
+               company: "AppCraft Studios",
+               period: "January 2019 - July 2020",
+               type: "Full-Time",
+               icon: Briefcase,
+               status: "past",
+               responsibilities: [
+                    "Built cross-platform mobile applications using React Native and Flutter",
+                    "Integrated mobile apps with backend APIs and cloud services",
+                    "Implemented push notifications, in-app purchases, and analytics",
+                    "Published multiple apps on Google Play Store and Apple App Store",
+                    "Conducted performance optimization and bug fixing for production apps",
+               ],
+               skills: ["React Native", "Flutter", "Dart", "Firebase", "REST APIs", "SQLite"],
+               technologies: ["Redux", "AsyncStorage", "Fastlane", "Crashlytics"],
+          },
+     ];
+
      const getTypeStyle = (type) => {
           switch (type) {
                case "Academic":
@@ -113,10 +202,23 @@ const ExperiencePage = () => {
                          line: "bg-accent/30"
                     };
                case "Industry":
+               case "Full-Time":
                     return {
                          badge: "bg-purple-500/10 text-purple-600 border-purple-500/20",
                          dot: "bg-purple-500",
                          line: "bg-purple-500/30"
+                    };
+               case "Part-Time":
+                    return {
+                         badge: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+                         dot: "bg-blue-500",
+                         line: "bg-blue-500/30"
+                    };
+               case "Contract":
+                    return {
+                         badge: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+                         dot: "bg-orange-500",
+                         line: "bg-orange-500/30"
                     };
                case "Training":
                     return {
@@ -133,61 +235,140 @@ const ExperiencePage = () => {
           }
      };
 
+     const currentExperiences = activeTab === 'professional' ? professionalExperiences : industrialExperiences;
+
      return (
           <div className="min-h-screen bg-background">
                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
                     {/* Header */}
-                    <div className="text-center mb-20">
+                    <div className="text-center mb-16 animate-fade-in-up">
                          <div className="inline-block mb-6">
                               <span className="px-5 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full border border-primary/20">
                                    Career Journey
                               </span>
                          </div>
                          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight">
-                              Professional Experience
+                              Experience & Expertise
                          </h1>
                          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                              From research to leadership in academia, a track record of continuous learning,
-                              innovation, and contribution.
-
+                              A blend of academic excellence and industry innovation, driving impact across education and technology.
                          </p>
+                    </div>
+
+                    {/* Modern Toggle Switch */}
+                    <div className="flex justify-center mb-16 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+                         <div className="relative bg-card rounded-2xl p-2 border border-border shadow-lg inline-flex gap-2">
+                              <div 
+                                   className={`absolute top-2 bottom-2 left-2 rounded-xl bg-primary transition-all duration-300 ease-out ${
+                                        activeTab === 'professional' ? 'w-[calc(50%-0.25rem)]' : 'w-[calc(50%-0.25rem)] translate-x-[calc(100%+0.5rem)]'
+                                   }`}
+                              />
+                              <button
+                                   onClick={() => {
+                                        setActiveTab('professional');
+                                        setExpandedIndex(null);
+                                   }}
+                                   className={`relative z-10 px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                        activeTab === 'professional' 
+                                             ? 'text-primary-foreground' 
+                                             : 'text-muted-foreground hover:text-foreground'
+                                   }`}
+                              >
+                                   <GraduationCap className="w-5 h-5" />
+                                   Professional Experience
+                              </button>
+                              <button
+                                   onClick={() => {
+                                        setActiveTab('industrial');
+                                        setExpandedIndex(null);
+                                   }}
+                                   className={`relative z-10 px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                        activeTab === 'industrial' 
+                                             ? 'text-primary-foreground' 
+                                             : 'text-muted-foreground hover:text-foreground'
+                                   }`}
+                              >
+                                   <Briefcase className="w-5 h-5" />
+                                   Industrial Experience
+                              </button>
+                         </div>
                     </div>
 
                     {/* Career Stats */}
                     <div className="grid md:grid-cols-3 gap-6 mb-20">
-                         <div className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
-                              <div className="flex items-center gap-4">
-                                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                        <GraduationCap className="w-7 h-7" />
+                         {activeTab === 'professional' ? (
+                              <>
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                                  <GraduationCap className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-primary">8+</div>
+                                                  <div className="text-sm text-muted-foreground">Years in Academia</div>
+                                             </div>
+                                        </div>
                                    </div>
-                                   <div>
-                                        <div className="text-3xl font-bold text-primary">8+</div>
-                                        <div className="text-sm text-muted-foreground">Years in Academia</div>
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                                                  <Briefcase className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-accent">6</div>
+                                                  <div className="text-sm text-muted-foreground">Professional Roles</div>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                         </div>
-                         <div className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
-                              <div className="flex items-center gap-4">
-                                   <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                                        <Briefcase className="w-7 h-7" />
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                                                  <Award className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-primary">4</div>
+                                                  <div className="text-sm text-muted-foreground">Career Progressions</div>
+                                             </div>
+                                        </div>
                                    </div>
-                                   <div>
-                                        <div className="text-3xl font-bold text-accent">6</div>
-                                        <div className="text-sm text-muted-foreground">Professional Roles</div>
+                              </>
+                         ) : (
+                              <>
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+                                                  <Briefcase className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-blue-600">5+</div>
+                                                  <div className="text-sm text-muted-foreground">Years in Industry</div>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                         </div>
-                         <div className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
-                              <div className="flex items-center gap-4">
-                                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                        <Award className="w-7 h-7" />
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-600">
+                                                  <FlaskConical className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-purple-600">5</div>
+                                                  <div className="text-sm text-muted-foreground">Industry Roles</div>
+                                             </div>
+                                        </div>
                                    </div>
-                                   <div>
-                                        <div className="text-3xl font-bold text-primary">4</div>
-                                        <div className="text-sm text-muted-foreground">Career Progressions</div>
+                                   <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                                        <div className="flex items-center gap-4">
+                                             <div className="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                                                  <Award className="w-7 h-7" />
+                                             </div>
+                                             <div>
+                                                  <div className="text-3xl font-bold text-emerald-600">2</div>
+                                                  <div className="text-sm text-muted-foreground">Active Part-Time</div>
+                                             </div>
+                                        </div>
                                    </div>
-                              </div>
-                         </div>
+                              </>
+                         )}
                     </div>
 
                     {/* Experience Timeline */}
@@ -196,7 +377,7 @@ const ExperiencePage = () => {
                          <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
 
                          <div className="space-y-8">
-                              {experiences.map((exp, index) => {
+                              {currentExperiences.map((exp, index) => {
                                    const IconComponent = exp.icon;
                                    const typeStyle = getTypeStyle(exp.type);
                                    const isExpanded = expandedIndex === index;
@@ -204,7 +385,8 @@ const ExperiencePage = () => {
                                    return (
                                         <div
                                              key={index}
-                                             className="relative group"
+                                             className="relative group animate-fade-in-up"
+                                             style={{ animationDelay: `${0.4 + index * 0.1}s` }}
                                         >
                                              {/* Timeline Dot */}
                                              <div className={`hidden lg:block absolute left-8 top-8 w-4 h-4 rounded-full ${typeStyle.dot} -translate-x-1/2 ring-4 ring-background z-10`}></div>
@@ -228,6 +410,11 @@ const ExperiencePage = () => {
                                                                            <span className={`px-3 py-1 text-xs font-semibold rounded-full border ${typeStyle.badge}`}>
                                                                                 {exp.type}
                                                                            </span>
+                                                                           {exp.status === 'current' && (
+                                                                                <span className="px-3 py-1 text-xs font-semibold rounded-full border bg-emerald-500/10 text-emerald-600 border-emerald-500/20 animate-pulse">
+                                                                                     Currently Active
+                                                                                </span>
+                                                                           )}
                                                                       </div>
 
                                                                       <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-2">
@@ -263,13 +450,13 @@ const ExperiencePage = () => {
                                                                       </ul>
                                                                  </div>
 
-                                                                 {/* Skills */}
+                                                                 {/* Skills & Technologies */}
                                                                  <div>
                                                                       <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-4 flex items-center gap-2">
                                                                            <div className="w-1 h-4 bg-primary rounded-full"></div>
                                                                            Key Skills
                                                                       </h4>
-                                                                      <div className="flex flex-wrap gap-2">
+                                                                      <div className="flex flex-wrap gap-2 mb-6">
                                                                            {exp.skills.map((skill, idx) => (
                                                                                 <span
                                                                                      key={idx}
@@ -279,6 +466,25 @@ const ExperiencePage = () => {
                                                                                 </span>
                                                                            ))}
                                                                       </div>
+                                                                      
+                                                                      {exp.technologies && (
+                                                                           <>
+                                                                                <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-4 flex items-center gap-2 mt-6">
+                                                                                     <div className="w-1 h-4 bg-accent rounded-full"></div>
+                                                                                     Technologies
+                                                                                </h4>
+                                                                                <div className="flex flex-wrap gap-2">
+                                                                                     {exp.technologies.map((tech, idx) => (
+                                                                                          <span
+                                                                                               key={idx}
+                                                                                               className="px-3 py-1.5 bg-accent/10 hover:bg-accent/20 text-accent text-xs rounded-lg border border-accent/20 transition-colors duration-200"
+                                                                                          >
+                                                                                               {tech}
+                                                                                          </span>
+                                                                                     ))}
+                                                                                </div>
+                                                                           </>
+                                                                      )}
                                                                  </div>
                                                             </div>
                                                        </div>
@@ -294,7 +500,7 @@ const ExperiencePage = () => {
                     </div>
 
                     {/* Career Highlights */}
-                    <div className="mt-32">
+                    <div className="mt-32 animate-fade-in-up" style={{ animationDelay: "1s" }}>
                          <div className="relative bg-card rounded-3xl p-12 shadow-lg border border-border overflow-hidden">
                               <div className="absolute inset-0 bg-primary/5"></div>
                               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
@@ -305,19 +511,36 @@ const ExperiencePage = () => {
                                         <Award className="w-8 h-8" />
                                    </div>
                                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                                        Career Growth & Impact
+                                        {activeTab === 'professional' ? 'Academic Excellence' : 'Industry Innovation'}
                                    </h2>
                                    <p className="text-muted-foreground text-lg leading-relaxed">
-                                        My career reflects a strong dedication to teaching, research, and the development of students. Each
-                                        role, from working in several technical positions through to leadership in academia, has enabled
-                                        me to become more knowledgeable about education, technology, and research, and the connection
-                                        between them, so that they work to create meaningful impact.
-
+                                        {activeTab === 'professional' 
+                                             ? "My career reflects a strong dedication to teaching, research, and the development of students. Each role, from working in several technical positions through to leadership in academia, has enabled me to become more knowledgeable about education, technology, and research, and the connection between them, so that they work to create meaningful impact."
+                                             : "Bridging academia and industry, I bring cutting-edge technical expertise to real-world applications. My industrial experience spans full-stack development, machine learning, DevOps, and mobile applications, demonstrating versatility and commitment to delivering innovative solutions that drive business growth and technological advancement."
+                                        }
                                    </p>
                               </div>
                          </div>
                     </div>
                </div>
+               
+               <style jsx>{`
+                    @keyframes fadeInUp {
+                         from {
+                              opacity: 0;
+                              transform: translateY(30px);
+                         }
+                         to {
+                              opacity: 1;
+                              transform: translateY(0);
+                         }
+                    }
+                    
+                    .animate-fade-in-up {
+                         animation: fadeInUp 0.6s ease-out forwards;
+                         opacity: 0;
+                    }
+               `}</style>
           </div>
      );
 };

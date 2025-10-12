@@ -207,7 +207,7 @@ const SkillsPage = () => {
     <div className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 animate-fade-in-up">
           <div className="inline-block mb-6">
             <span className="px-5 py-2 bg-primary/10 text-primary text-sm font-semibold rounded-full border border-primary/20">
               Professional Portfolio
@@ -228,7 +228,8 @@ const SkillsPage = () => {
             return (
               <div
                 key={index}
-                className="group relative bg-card rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border overflow-hidden"
+                className="animate-fade-in-up group relative bg-card rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border overflow-hidden"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
@@ -250,7 +251,7 @@ const SkillsPage = () => {
         {/* Skills Categories */}
         <div className="space-y-24">
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="relative">
+            <div key={categoryIndex} className="relative animate-fade-in-up" style={{ animationDelay: `${0.3 + categoryIndex * 0.1}s` }}>
               {/* Category Header */}
               <div className="text-center mb-12">
                 <div className="inline-block relative">
@@ -308,7 +309,7 @@ const SkillsPage = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-32">
+        <div className="mt-32 animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
           <div className="relative bg-card rounded-3xl p-12 shadow-lg border border-border overflow-hidden">
             <div className="absolute inset-0 bg-primary/5"></div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
@@ -342,6 +343,24 @@ const SkillsPage = () => {
           </div>
         </div>
       </div>
+      
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
     </div>
   );
 };

@@ -10,15 +10,19 @@ const roboto = Roboto({
   variable: "--font-roboto",
   display: "swap",
 })
-
+// Add favicon link using Next.js metadata
 export const metadata = {
   title: "Md. Shohel Arman - Assistant Professor & Data Science Researcher",
   description:
     "Portfolio of Md. Shohel Arman, Assistant Professor at Daffodil International University, specializing in data science, machine learning, and education.",
   keywords:
     "data science, machine learning, education, research, assistant professor, DIU",
-  generator: "v0.app",
+  icons: {
+    icon: "/fav2.jpg",
+  },
 }
+
+
 
 export default function RootLayout({ children }) {
   return (
