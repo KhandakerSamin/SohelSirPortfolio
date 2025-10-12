@@ -1,7 +1,103 @@
+"use client";
 import Link from "next/link"
 import Image from "next/image"
+import { useState, useEffect } from "react"
+import { ExternalLink, BookOpen, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 
 const HomePage = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [academicStats, setAcademicStats] = useState({
+    years: 0,
+    endorsements: 0,
+    positions: 0,
+    certificates: 0
+  });
+
+  // Animate numbers on mount
+  useEffect(() => {
+    const targets = { years: 8, endorsements: 15, positions: 4, certificates: 10 };
+    const duration = 2000;
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    Object.keys(targets).forEach(key => {
+      const target = targets[key];
+      const increment = target / steps;
+      let current = 0;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        setAcademicStats(prev => ({ ...prev, [key]: Math.floor(current) }));
+      }, stepDuration);
+    });
+  }, []);
+
+  const featuredPublications = [
+    {
+      title: "Enhancing Roadway Cleanliness Through Advanced Object Detection Techniques",
+      year: "2024",
+      type: "Journal",
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:ULOm3_A8WrAC",
+      description: "A Study on Road Garbage Detection and Classification Using YOLOv8"
+    },
+    {
+      title: "PhishGuard: Leveraging NLP and Machine Learning for Email Phishing Detection",
+      year: "2024",
+      type: "Conference",
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:hqOjcs7Dif8C",
+      description: "Advanced email security using natural language processing techniques"
+    },
+    {
+      title: "Parking Slot Detection and Vacancy Check Based on Deep Learning Method",
+      year: "2024",
+      type: "Journal",
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:8k81kl-MbHgC",
+      description: "Smart parking management using computer vision"
+    },
+    {
+      title: "Customer Sentiments Towards Delivery Services in Bangladesh",
+      year: "2024",
+      type: "Conference",
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:IjCSPb-OGe4C",
+      description: "Machine learning-based sentiment analysis of delivery services"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Dr. Sarah Ahmed",
+      role: "Professor, Computer Science",
+      institution: "University of Dhaka",
+      content: "Shohel's innovative approach to data science education has transformed how students engage with complex machine learning concepts. His research contributions are exceptional.",
+      rating: 5
+    },
+    {
+      name: "Prof. Michael Chen",
+      role: "Research Director",
+      institution: "Tech Innovation Lab",
+      content: "Working with Shohel on collaborative research projects has been exceptional. His expertise in machine learning and analytical thinking are outstanding.",
+      rating: 5
+    },
+    {
+      name: "Ahmed Rahman",
+      role: "Former Student, Now Data Scientist",
+      institution: "Google",
+      content: "Professor Arman's guidance was instrumental in my career. His practical approach to teaching complex concepts made all the difference.",
+      rating: 5
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <div className="min-h-screen">
 
@@ -126,10 +222,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Academic Excellence */}
-      <section className="py-20 bg-card">
+      {/* Academic Excellence - WITH ANIMATED NUMBERS */}
+      <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Academic Excellence</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A track record of dedication to education, research, and professional development
@@ -139,25 +235,25 @@ const HomePage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">8+</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.years}+</div>
                 <div className="text-muted-foreground text-sm md:text-base">Years in Teaching & Research</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">15+</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.endorsements}+</div>
                 <div className="text-muted-foreground text-sm md:text-base">LinkedIn Endorsements</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">4</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.positions}</div>
                 <div className="text-muted-foreground text-sm md:text-base">Academic Positions at DIU</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">10+</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.certificates}+</div>
                 <div className="text-muted-foreground text-sm md:text-base">Professional Certificates</div>
               </div>
             </div>
@@ -166,9 +262,9 @@ const HomePage = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">About Me</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Dedicated educator and researcher with a passion for advancing data science
@@ -212,9 +308,9 @@ const HomePage = () => {
       </section>
 
       {/* Skills Preview */}
-      <section className="py-20 bg-card">
+      <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Skills & Expertise</h2>
             <p className="text-lg text-muted-foreground">Core competencies with LinkedIn endorsements</p>
           </div>
@@ -283,58 +379,132 @@ const HomePage = () => {
       </section>
 
       {/* Experience Preview */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
-            <p className="text-lg text-muted-foreground">Academic and professional journey</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Professional & Industrial Experience
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Academic, professional, and industrial journey
+            </p>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+
+          {/* Cards Container */}
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+
+            {/* Professional Experience Card */}
+            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300 flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h3 className="text-2xl font-bold text-foreground">Assistant Professor & Lab In-charge</h3>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary">Current</span>
+                <h3 className="text-2xl font-bold text-foreground">
+                  Assistant Professor & Lab In-charge
+                </h3>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary">
+                  Current
+                </span>
               </div>
-              <p className="text-lg text-primary font-medium mb-2">Daffodil International University (DIU)</p>
-              <p className="text-muted-foreground font-medium mb-4">August 2022 - Present • 2+ years</p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Leading research initiatives in data science and machine learning. Managing computer science laboratory
-                operations and equipment.
+              <p className="text-lg text-primary font-medium mb-2">
+                Daffodil International University (DIU)
               </p>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="text-center p-4 bg-background rounded-lg">
+              <p className="text-muted-foreground font-medium mb-4">
+                August 2022 - Present • 2+ years
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Leading research initiatives in data science and machine learning.
+                Managing computer science laboratory operations, mentoring students,
+                and contributing to academic course development.
+              </p>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="p-4 bg-background rounded-lg">
                   <div className="text-2xl font-bold text-primary mb-1">100+</div>
                   <div className="text-xs text-muted-foreground">Students Taught</div>
                 </div>
-                <div className="text-center p-4 bg-background rounded-lg">
+                <div className="p-4 bg-background rounded-lg">
                   <div className="text-2xl font-bold text-primary mb-1">15+</div>
                   <div className="text-xs text-muted-foreground">Research Projects</div>
                 </div>
-                <div className="text-center p-4 bg-background rounded-lg">
+                <div className="p-4 bg-background rounded-lg">
                   <div className="text-2xl font-bold text-primary mb-1">5+</div>
                   <div className="text-xs text-muted-foreground">Courses Developed</div>
                 </div>
               </div>
             </div>
+
+            {/* Industrial Experience Card */}
+            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300 flex-1">
+              <div className="flex items-center gap-3 mb-2">
+                <h3 className="text-2xl font-bold text-foreground">
+                  Senior Full-Stack Developer
+                </h3>
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary">
+                  Active
+                </span>
+              </div>
+              <p className="text-lg text-primary font-medium mb-2">
+                TechVision Solutions • Part-Time
+              </p>
+              <p className="text-muted-foreground font-medium mb-4">
+                January 2024 - Present
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Architecting and developing scalable web applications using React, Node.js, and MongoDB.
+                Leading code reviews, integrating third-party APIs, optimizing performance,
+                and mentoring junior developers.
+              </p>
+
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="p-4 bg-background rounded-lg">
+                  <div className="text-sm font-semibold text-primary mb-1">Key Skills</div>
+                  <div className="text-xs text-muted-foreground">
+                    React.js • Node.js • MongoDB • AWS
+                  </div>
+                </div>
+                <div className="p-4 bg-background rounded-lg">
+                  <div className="text-sm font-semibold text-primary mb-1">Dev Tools</div>
+                  <div className="text-xs text-muted-foreground">
+                    Docker • Git • CI/CD
+                  </div>
+                </div>
+                <div className="p-4 bg-background rounded-lg">
+                  <div className="text-sm font-semibold text-primary mb-1">Technologies</div>
+                  <div className="text-xs text-muted-foreground">
+                    TypeScript • Express.js • PostgreSQL • Redis
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div className="text-center mt-12">
             <Link
               href="/experience"
               className="btn-primary inline-flex items-center justify-center px-8 py-3 font-medium rounded-lg hover:scale-105 transition-all duration-300"
             >
               View Full Experience
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Link>
           </div>
         </div>
       </section>
 
+
+
       {/* Volunteering Section */}
-      <section className="py-20 bg-card">
+      <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Community Service</h2>
             <p className="text-lg text-muted-foreground">Giving back through leadership and volunteer work</p>
           </div>
@@ -383,50 +553,77 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Publications Section */}
-      <section className="py-20">
+      {/* Publications Section - UPGRADED WITH GOOGLE SCHOLAR */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Publications & Research</h2>
-            <p className="text-lg text-muted-foreground">Academic contributions and ongoing research</p>
+            <p className="text-lg text-muted-foreground">Latest publications and academic contributions</p>
           </div>
-          <div className="space-y-6 mb-12">
-            <div className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    Machine Learning Approaches in Educational Data Mining
-                  </h3>
-                  <p className="text-primary font-medium mb-2">
-                    International Conference on Educational Technology (2023)
-                  </p>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {featuredPublications.map((pub, index) => (
+              <div
+                key={index}
+                className="group bg-card border border-border rounded-xl p-6 card-hover hover:border-primary/50 transition-all duration-300"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${pub.type === 'Journal'
+                      ? 'bg-primary/10 text-primary border border-primary/20'
+                      : 'bg-accent/10 text-accent border border-accent/20'
+                    }`}>
+                    {pub.type} • {pub.year}
+                  </span>
+                  <a
+                    href={pub.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
-                <span className="px-3 py-1 text-sm rounded-full mt-2 lg:mt-0 bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                  Under Review
-                </span>
+
+                <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                  {pub.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                  {pub.description}
+                </p>
+
+                <a
+                  href={pub.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                >
+                  Read Full Paper
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    Data Visualization Techniques for Business Intelligence
-                  </h3>
-                  <p className="text-primary font-medium mb-2">Journal of Data Science Applications (2023)</p>
-                </div>
-                <span className="px-3 py-1 text-sm rounded-full mt-2 lg:mt-0 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                  In Preparation
-                </span>
-              </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://scholar.google.com/citations?hl=en&user=D7YhgbwAAAAJ&view_op=list_works&sortby=pubdate"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              <BookOpen className="w-5 h-5" />
+              View All Publications on Google Scholar
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
 
       {/* Certifications Section */}
-      <section className="py-20 bg-card">
+      <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Certifications</h2>
             <p className="text-lg text-muted-foreground">Continuous learning and skill development</p>
           </div>
@@ -495,106 +692,90 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Client Reviews & Recommendations</h2>
-            <p className="text-lg text-muted-foreground">What colleagues and students say about my work</p>
+      {/* Testimonials Section - Compact Modern Design */}
+      <section className="py-10">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Client Reviews & Recommendations
+            </h2>
+            <p className="text-base text-muted-foreground">
+              What colleagues and students say about my work
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="flex items-center mb-4">
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                Shohel's dedication to research and teaching excellence is remarkable. His innovative approach to data
-                science education has inspired countless students.
+
+          <div className="relative max-w-3xl mx-auto">
+            <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300">
+              <Quote className="w-8 h-8 text-primary/20 mb-4" />
+
+              <p className="text-lg text-foreground leading-relaxed mb-6 italic">
+                "{testimonials[currentTestimonial].content}"
               </p>
-              <div>
-                <h4 className="font-semibold text-foreground">Dr. Sarah Johnson</h4>
-                <p className="text-primary text-sm font-medium">Department Head, Computer Science</p>
-                <p className="text-muted-foreground text-sm">International University</p>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-lg font-bold text-primary border border-border">
+                    {testimonials[currentTestimonial].name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-foreground text-sm md:text-base">
+                      {testimonials[currentTestimonial].name}
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      {testimonials[currentTestimonial].role}
+                    </div>
+                    <div className="text-xs text-primary">
+                      {testimonials[currentTestimonial].institution}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-0.5">
+                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="flex items-center mb-4">
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+
+            {/* Controls */}
+            <div className="flex items-center justify-center gap-3 mt-6">
+              <button
+                onClick={prevTestimonial}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <div className="flex gap-1.5">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${index === currentTestimonial
+                        ? 'bg-primary w-6'
+                        : 'bg-border w-2 hover:bg-muted-foreground'
+                      }`}
+                  />
+                ))}
               </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                Working with Shohel on collaborative research projects has been exceptional. His expertise in machine
-                learning and analytical thinking are outstanding.
-              </p>
-              <div>
-                <h4 className="font-semibold text-foreground">Prof. Michael Chen</h4>
-                <p className="text-primary text-sm font-medium">Research Director</p>
-                <p className="text-muted-foreground text-sm">Tech Innovation Lab</p>
-              </div>
-            </div>
-            <div className="bg-card border border-border rounded-xl p-6 card-hover">
-              <div className="flex items-center mb-4">
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                Professor Arman's guidance was instrumental in my career. His practical approach to teaching complex
-                concepts made all the difference.
-              </p>
-              <div>
-                <h4 className="font-semibold text-foreground">Ahmed Rahman</h4>
-                <p className="text-primary text-sm font-medium">Former Student, Now Data Scientist</p>
-                <p className="text-muted-foreground text-sm">Google</p>
-              </div>
+
+              <button
+                onClick={nextTestimonial}
+                className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
       </section>
 
+
       {/* FAQ Section */}
-      <section className="py-20 bg-card">
+      <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-muted-foreground">Common questions about my work and expertise</p>
           </div>
@@ -657,7 +838,7 @@ const HomePage = () => {
       </section>
 
       {/* Contact Preview */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Let's Connect</h2>
