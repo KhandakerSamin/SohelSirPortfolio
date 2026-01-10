@@ -8,14 +8,14 @@ const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [academicStats, setAcademicStats] = useState({
     years: 0,
-    endorsements: 0,
+    publications: 0,
     positions: 0,
-    certificates: 0
+    toefl: 0
   });
 
   // Animate numbers on mount
   useEffect(() => {
-    const targets = { years: 8, endorsements: 15, positions: 4, certificates: 10 };
+    const targets = { years: 8, publications: 5, positions: 7, toefl: 100 };
     const duration = 2000;
     const steps = 60;
     const stepDuration = duration / steps;
@@ -37,6 +37,13 @@ const HomePage = () => {
 
   const featuredPublications = [
     {
+      title: "Rooftops detection with YOLOv8 from aerial imagery and a brief review on rooftop photovoltaic potential assessment",
+      year: "2025",
+      type: "Journal",
+      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ",
+      description: "Published in IAES International Journal of Artificial Intelligence - Ahmed, M. S., Arman, M. S., Tasnim, N., Imran, M. H., Sammak, M. H., & Bhuiyan, T."
+    },
+    {
       title: "Enhancing Roadway Cleanliness Through Advanced Object Detection Techniques",
       year: "2024",
       type: "Journal",
@@ -56,30 +63,25 @@ const HomePage = () => {
       type: "Journal",
       link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:8k81kl-MbHgC",
       description: "Smart parking management using computer vision"
-    },
-    {
-      title: "Customer Sentiments Towards Delivery Services in Bangladesh",
-      year: "2024",
-      type: "Conference",
-      link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=D7YhgbwAAAAJ&sortby=pubdate&citation_for_view=D7YhgbwAAAAJ:IjCSPb-OGe4C",
-      description: "Machine learning-based sentiment analysis of delivery services"
     }
   ];
 
   const testimonials = [
     {
-      name: "Dr. Sarah Ahmed",
-      role: "Professor, Computer Science",
-      institution: "University of Dhaka",
-      content: "Shohel's innovative approach to data science education has transformed how students engage with complex machine learning concepts. His research contributions are exceptional.",
-      rating: 5
+      name: "Professor Dr. Touhid Bhuiyan",
+      role: "Professor",
+      institution: "Washington University of Science and Technology, USA",
+      content: "I have known him for several years… he is wonderful … I strongly recommend…",
+      rating: 5,
+      email: "touhid.bhuiyan@wust.edu"
     },
     {
-      name: "Prof. Michael Chen",
-      role: "Research Director",
-      institution: "Tech Innovation Lab",
-      content: "Working with Shohel on collaborative research projects has been exceptional. His expertise in machine learning and analytical thinking are outstanding.",
-      rating: 5
+      name: "Kaushik Sarker",
+      role: "Associate Professor",
+      institution: "Daffodil International University",
+      content: "I have known him for several years… he is wonderful … I strongly recommend…",
+      rating: 5,
+      email: "kaushik.swe@daffodilvarsity.edu.bd"
     },
     {
       name: "Ahmed Rahman",
@@ -118,7 +120,7 @@ const HomePage = () => {
               {/* Main Heading */}
               <div className="space-y-2">
                 <h1 className="text-4xl sm:text-5xl md:text-[68px] font-bold text-foreground leading-tight whitespace-nowrap">
-                  <span className="text-gradient">Md. Shohel Arman</span>
+                  <span className="text-gradient">Md Shohel Arman</span>
                 </h1>
 
                 <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full"></div>
@@ -126,14 +128,14 @@ const HomePage = () => {
 
               {/* Role */}
               <h2 className="text-lg md:text-2xl text-primary font-medium leading-relaxed">
-                Assistant Professor • Data Science Researcher • Educator
+                Assistant Professor • Research Assistant (WUST, USA) • AI & ML Expert
               </h2>
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Passionate about teaching, research, and driving data science innovation. Having
-                worked in academic for more than eight years, with a focus on machine learning,
-                data analysis, and educational innovation through creative teaching methods.
+                Passionate about teaching, research, and driving innovation in Computer Vision, Machine Learning, and Data Science.
+                With over eight years in academia, I lead research initiatives at DIU's Data Science Lab and collaborate
+                internationally at Washington University of Science & Technology (WUST), USA.
               </p>
 
               {/* CTA Buttons */}
@@ -186,7 +188,7 @@ const HomePage = () => {
                   <div className="relative w-full h-full p-4">
                     <Image
                       src="/profile.jpeg"
-                      alt="Md. Shohel Arman"
+                      alt="Md Shohel Arman"
                       width={384}
                       height={384}
                       className="rounded-2xl object-cover w-full h-full group-hover:scale-103 transition-transform duration-500"
@@ -241,20 +243,20 @@ const HomePage = () => {
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.endorsements}+</div>
-                <div className="text-muted-foreground text-sm md:text-base">LinkedIn Endorsements</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.publications}+</div>
+                <div className="text-muted-foreground text-sm md:text-base">Recent Publications</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.positions}</div>
-                <div className="text-muted-foreground text-sm md:text-base">Academic Positions at DIU</div>
+                <div className="text-muted-foreground text-sm md:text-base">Career Positions</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.certificates}+</div>
-                <div className="text-muted-foreground text-sm md:text-base">Professional Certificates</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.toefl}</div>
+                <div className="text-muted-foreground text-sm md:text-base">TOEFL iBT Score</div>
               </div>
             </div>
           </div>
@@ -273,9 +275,10 @@ const HomePage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="card-hover bg-card border border-border rounded-2xl p-8 md:p-12">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-foreground mb-2">Assistant Professor & Lab In-charge</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Assistant Professor & Lab In-charge, Data Science Lab</h3>
                 <p className="text-lg text-primary font-medium">Daffodil International University (DIU)</p>
-                <p className="text-muted-foreground mt-2">August 2022 - Present</p>
+                <p className="text-muted-foreground mt-2">September 2022 - Present</p>
+                <p className="text-md text-muted-foreground mt-1">Research Assistant, Washington University of Science & Technology (WUST), USA - 2024 - Present</p>
               </div>
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="text-left">

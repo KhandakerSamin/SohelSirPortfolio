@@ -7,9 +7,21 @@ const SkillsPage = () => {
 
   const skillCategories = [
     {
-      title: "Core Skills",
-      description: "Primary areas of expertise with LinkedIn endorsements",
+      title: "Core Research Interests",
+      description: "Primary research areas with focus on advanced AI and data science applications",
       skills: [
+        { 
+          name: "Computer Vision", 
+          endorsed: true,
+          icon: Image,
+          description: "Advanced image processing and visual recognition systems"
+        },
+        { 
+          name: "Natural Language Processing", 
+          endorsed: true,
+          icon: Mic,
+          description: "Text analysis and language understanding"
+        },
         { 
           name: "Machine Learning", 
           endorsed: true,
@@ -17,28 +29,148 @@ const SkillsPage = () => {
           description: "Advanced ML algorithms and model development"
         },
         { 
-          name: "Data Analysis", 
+          name: "Deep Learning", 
+          endorsed: true,
+          icon: Network,
+          description: "Neural networks and advanced AI architectures"
+        },
+        { 
+          name: "Data Science", 
           endorsed: true,
           icon: BarChart3,
-          description: "Statistical analysis and data interpretation"
+          description: "Data analysis, mining, and interpretation"
         },
         { 
-          name: "Research", 
+          name: "Software Engineering", 
+          endorsed: true,
+          icon: Code2,
+          description: "Software development methodologies and practices"
+        },
+      ],
+    },
+    {
+      title: "Programming & Development",
+      description: "Programming languages and development tools used in research and teaching",
+      skills: [
+        { 
+          name: "Python", 
+          endorsed: true,
+          icon: Code2,
+          description: "Primary programming language for AI/ML"
+        },
+        { 
+          name: "C", 
+          endorsed: false,
+          icon: Cpu,
+          description: "Systems programming and algorithms"
+        },
+        { 
+          name: "PHP", 
+          endorsed: false,
+          icon: Code2,
+          description: "Server-side web development"
+        },
+        { 
+          name: "Java", 
+          endorsed: false,
+          icon: Code2,
+          description: "Enterprise application development"
+        },
+        { 
+          name: "JavaScript", 
+          endorsed: false,
+          icon: Code2,
+          description: "Web and frontend development"
+        },
+        { 
+          name: "HTML5", 
+          endorsed: false,
+          icon: Code2,
+          description: "Modern web markup and structuring"
+        },
+      ],
+    },
+    {
+      title: "Tools & Platforms",
+      description: "Software tools and platforms for development, teaching, and productivity",
+      skills: [
+        { 
+          name: "Linux / Ubuntu", 
+          endorsed: false,
+          icon: Laptop,
+          description: "Operating system for development"
+        },
+        { 
+          name: "MS Office", 
+          endorsed: false,
+          icon: FileSpreadsheet,
+          description: "Document and presentation tools"
+        },
+        { 
+          name: "Trello", 
+          endorsed: false,
+          icon: FolderKanban,
+          description: "Project management and organization"
+        },
+        { 
+          name: "Adobe XD", 
+          endorsed: false,
+          icon: Box,
+          description: "UI/UX design and prototyping"
+        },
+        { 
+          name: "Figma", 
+          endorsed: false,
+          icon: Box,
+          description: "Collaborative interface design"
+        },
+        { 
+          name: "Moodle", 
+          endorsed: false,
+          icon: School,
+          description: "Learning management system"
+        },
+        { 
+          name: "Google Classroom", 
+          endorsed: false,
+          icon: School,
+          description: "Online teaching platform"
+        },
+        { 
+          name: "Slack", 
+          endorsed: false,
+          icon: Users,
+          description: "Team collaboration and communication"
+        },
+      ],
+    },
+    {
+      title: "Academic & Leadership",
+      description: "Skills developed through teaching, research, and leadership roles",
+      skills: [
+        { 
+          name: "Research Leadership", 
           endorsed: true,
           icon: FlaskConical,
-          description: "Academic research and publication"
+          description: "Leading research projects and teams"
         },
         { 
-          name: "Teaching", 
+          name: "Teaching & Mentoring", 
           endorsed: true,
           icon: GraduationCap,
-          description: "Educational instruction and mentorship"
+          description: "Educational instruction and student guidance"
         },
         { 
-          name: "Deep Learning", 
+          name: "Human-Computer Interaction", 
           endorsed: false,
-          icon: Network,
-          description: "Neural networks and advanced AI"
+          icon: Users,
+          description: "User experience and interaction design"
+        },
+        { 
+          name: "Artificial Intelligence", 
+          endorsed: true,
+          icon: Brain,
+          description: "AI systems and applications"
         },
         { 
           name: "Data Visualization", 
@@ -46,137 +178,11 @@ const SkillsPage = () => {
           icon: PieChart,
           description: "Creating impactful visual insights"
         },
-      ],
-    },
-    {
-      title: "Technical Tools & Technologies",
-      description: "Software and programming tools used in research and teaching",
-      skills: [
         { 
-          name: "Python", 
+          name: "Lab Management", 
           endorsed: false,
-          icon: Code2,
-          description: "Primary programming language"
-        },
-        { 
-          name: "Power BI", 
-          endorsed: false,
-          icon: BarChart3,
-          description: "Business intelligence and analytics"
-        },
-        { 
-          name: "Tableau", 
-          endorsed: false,
-          icon: TrendingUp,
-          description: "Data visualization platform"
-        },
-        { 
-          name: "TensorFlow", 
-          endorsed: false,
-          icon: Cpu,
-          description: "Deep learning framework"
-        },
-        { 
-          name: "NumPy & Pandas", 
-          endorsed: false,
-          icon: Layers,
-          description: "Data manipulation libraries"
-        },
-        { 
-          name: "Excel", 
-          endorsed: false,
-          icon: FileSpreadsheet,
-          description: "Spreadsheet analysis"
-        },
-        { 
-          name: "Git", 
-          endorsed: false,
-          icon: GitBranch,
-          description: "Version control system"
-        },
-        { 
-          name: "SQL", 
-          endorsed: false,
-          icon: Database,
-          description: "Database management"
-        },
-      ],
-    },
-    {
-      title: "Academic & Professional Skills",
-      description: "Soft skills developed through years of academic and professional experience",
-      skills: [
-        { 
-          name: "Leadership", 
-          endorsed: false,
-          icon: Users,
-          description: "Team management and guidance"
-        },
-        { 
-          name: "Mentorship", 
-          endorsed: false,
-          icon: Award,
-          description: "Student and peer mentoring"
-        },
-        { 
-          name: "Academic Writing", 
-          endorsed: false,
-          icon: BookOpen,
-          description: "Research papers and publications"
-        },
-        { 
-          name: "Public Speaking", 
-          endorsed: false,
-          icon: Mic,
-          description: "Presentations and conferences"
-        },
-        { 
-          name: "Curriculum Development", 
-          endorsed: false,
-          icon: Lightbulb,
-          description: "Course design and planning"
-        },
-        { 
-          name: "Project Management", 
-          endorsed: false,
-          icon: FolderKanban,
-          description: "Research project coordination"
-        },
-      ],
-    },
-    {
-      title: "Research Areas",
-      description: "Specialized research interests and ongoing projects",
-      skills: [
-        { 
-          name: "Data Science in Education", 
-          endorsed: false,
-          icon: School,
-          description: "Educational data analytics"
-        },
-        { 
-          name: "Image Processing", 
-          endorsed: false,
-          icon: Image,
-          description: "Computer vision techniques"
-        },
-        { 
-          name: "Business Data Analytics", 
-          endorsed: false,
-          icon: TrendingUp,
-          description: "Business intelligence insights"
-        },
-        { 
-          name: "Educational Technology", 
-          endorsed: false,
-          icon: Laptop,
-          description: "Technology-enhanced learning"
-        },
-        { 
-          name: "Machine Learning Applications", 
-          endorsed: false,
-          icon: Box,
-          description: "Real-world ML solutions"
+          icon: FlaskConical,
+          description: "Research lab operations and oversight"
         },
       ],
     },
@@ -184,15 +190,15 @@ const SkillsPage = () => {
 
   const achievements = [
     {
-      title: "15+",
-      subtitle: "LinkedIn Endorsements",
-      description: "Professional recognition for core skills",
+      title: "100",
+      subtitle: "TOEFL iBT Score",
+      description: "L: 25 | R: 30 | S: 20 | W: 25 (out of 120)",
       icon: Award,
     },
     {
-      title: "10+",
-      subtitle: "Professional Certificates",
-      description: "Continuous learning and skill development",
+      title: "4.00",
+      subtitle: "M.Sc. CGPA",
+      description: "Perfect score in Software Engineering",
       icon: GraduationCap,
     },
     {

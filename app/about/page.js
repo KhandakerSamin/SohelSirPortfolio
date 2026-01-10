@@ -5,7 +5,7 @@ import { MapPin, Mail, Calendar, Award, Sparkles } from "lucide-react"
 const AboutPage = () => {
   const timelineEvents = [
     {
-      year: "2012-2015",
+      year: "2011-2016",
       title: "B.Sc. in Software Engineering",
       institution: "Daffodil International University (DIU)",
       description:
@@ -13,21 +13,29 @@ const AboutPage = () => {
       type: "education",
     },
     {
-      year: "2016",
-      title: "Technical Writer",
-      institution: "IEC Ltd.",
-      description: "Created technical documentation and content for software products and services.",
-      type: "work",
+      year: "2016-2020",
+      title: "M.Sc. in Software Engineering",
+      institution: "Daffodil International University (DIU)",
+      description:
+        "Graduated with perfect CGPA: 4.00/4.00. Specialized in advanced software engineering, data science and research methodologies.",
+      type: "education",
     },
     {
       year: "2016",
+      title: "Technical Writer",
+      institution: "IECL Information Entertainment & Communication Ltd",
+      description: "Prepared technical documentation and writing related to engineering and computing topics.",
+      type: "work",
+    },
+    {
+      year: "Nov-Dec 2016",
       title: "Teaching Apprentice",
       institution: "Daffodil International University",
       description: "Began academic journey by assisting senior faculty in teaching and research activities.",
       type: "work",
     },
     {
-      year: "2017",
+      year: "Jan-Aug 2017",
       title: "Research Associate",
       institution: "Daffodil International University",
       description: "Conducted research in software engineering and data science. Contributed to academic publications.",
@@ -50,10 +58,18 @@ const AboutPage = () => {
     },
     {
       year: "2022-Present",
-      title: "Assistant Professor & Lab In-charge",
+      title: "Assistant Professor & Lab In-charge, Data Science Lab",
       institution: "Daffodil International University",
       description:
-        "Current role focusing on advanced research in data science, machine learning, and educational innovation.",
+        "Leading research initiatives in AI and data science, managing lab operations, mentoring students, and fostering collaborative research projects.",
+      type: "work",
+    },
+    {
+      year: "2024-Present",
+      title: "Research Assistant",
+      institution: "Washington University of Science & Technology (WUST), USA",
+      description:
+        "Conducting research in Computer Vision and Machine Learning with active contributions to international publications.",
       type: "work",
     },
   ]
@@ -116,11 +132,12 @@ const AboutPage = () => {
                 {/* Right Side - Profile Info */}
                 <div className="lg:col-span-3 flex flex-col justify-center space-y-6 mt-8 lg:mt-0">
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 bg-gradient-to-r from-primary via-accent to-purple-500 bg-clip-text text-transparent">
-                      Md. Shohel Arman
+                    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-2 bg-gradient-to-r from-primary via-accent to-purple-500 bg-clip-text">
+                      Md Shohel Arman
                     </h2>
-                    <p className="text-xl text-primary font-semibold mb-1">Assistant Professor & Lab In-charge</p>
-                    <p className="text-lg text-muted-foreground">Department of Software Engineering</p>
+                    <p className="text-xl text-primary font-semibold mb-1">Assistant Professor & Lab In-charge, Data Science Lab</p>
+                    <p className="text-lg text-muted-foreground">Daffodil International University</p>
+                    <p className="text-md text-muted-foreground mt-1">Research Assistant, Washington University of Science & Technology (WUST), USA</p>
                   </div>
 
                   {/* Info Cards */}
@@ -177,21 +194,21 @@ const AboutPage = () => {
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm an Assistant Professor and Lab In-charge at Daffodil International University
+                  I'm an Assistant Professor and Lab In-charge of the Data Science Lab at Daffodil International University
                   (DIU), with over eight years of experience in teaching, research, and data science.
-                  My work focuses on software engineering, machine learning, image processing, and
-                  data visualization — areas where technology meets creativity.
+                  My work focuses on Computer Vision, Natural Language Processing, Machine Learning, Deep Learning,
+                  and Data Science — areas where cutting-edge technology meets real-world applications.
                 </p>
                 <p>
-                  I'm passionate about turning theory into real-world impact and give students the skill
-                  sets required to succeed in today's technology-driven world. I'm a strong advocate
-                  of data-driven learning and make every session an interactive and hands-on learning
-                  experience.
+                  I'm passionate about turning theory into real-world impact and empowering students with the skill
+                  sets required to succeed in today's technology-driven world. As a Research Assistant at Washington University
+                  of Science & Technology (WUST), USA, I actively contribute to international collaborative research in
+                  Computer Vision and Machine Learning.
                 </p>
                 <p>
-                  My research interests center on machine learning in education, data analytics for
-                  business intelligence and new teaching strategies that make learning more effective
-                  and enjoyable.
+                  My research interests span Computer Vision, Natural Language Processing, Machine Learning, Deep Learning,
+                  Data Science, Software Engineering, Human-Computer Interaction, and Artificial Intelligence. I believe
+                  in fostering innovation and creating meaningful impact through technology and education.
                 </p>
               </div>
             </div>
