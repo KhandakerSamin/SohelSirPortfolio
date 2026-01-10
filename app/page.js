@@ -609,16 +609,21 @@ const HomePage = () => {
           </div>
 
           <div className="text-center">
-            <a
-              href="https://scholar.google.com/citations?hl=en&user=D7YhgbwAAAAJ&view_op=list_works&sortby=pubdate"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/publications"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               <BookOpen className="w-5 h-5" />
-              View All Publications on Google Scholar
-              <ExternalLink className="w-4 h-4" />
-            </a>
+              Learn More
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
