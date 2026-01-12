@@ -469,18 +469,18 @@ const ExperiencePage = () => {
 
         {/* Modern Toggle Switch */}
         <div
-          className="flex justify-center mb-16 animate-fade-in-up px-4"
+          className="flex justify-center mb-16 animate-fade-in-up px-6"
           style={{ animationDelay: "0.1s" }}
         >
-          <div className="relative bg-card rounded-2xl p-2.5 border border-border shadow-lg inline-flex flex-wrap gap-2.5 max-w-full">
+          <div className="relative bg-card rounded-2xl p-3 border border-border shadow-lg inline-flex flex-wrap gap-2 pr-2 max-w-full">
             {/* Desktop sliding background */}
             <div
-              className={`hidden md:block absolute top-2.5 bottom-2.5 rounded-xl bg-primary transition-all duration-300 ease-out ${
+              className={`hidden md:block absolute rounded-xl bg-primary transition-all duration-300 ease-out ${
                 activeTab === "professional"
-                  ? "left-2.5 w-[calc(33.333%-0.833rem)]"
+                  ? "left-2.5 top-2.5 bottom-2.5 w-[calc(36.333%-0.833rem)]"
                   : activeTab === "industrial"
-                  ? "left-2.5 w-[calc(33.333%-0.833rem)] translate-x-[calc(100%+0.625rem)]"
-                  : "left-2.5 w-[calc(33.333%-0.833rem)] translate-x-[calc(200%+1.25rem)]"
+                  ? "top-2.5 bottom-2.5 w-[calc(35.333%-0.833rem)] left-[calc(35.333%+0.417rem)]"
+                  : "top-2.5 bottom-2.5 w-[calc(32.333%-0.833rem)] left-[calc(65.666%+0.833rem)]"
               }`}
             />
             <button
@@ -494,7 +494,7 @@ const ExperiencePage = () => {
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
-              <GraduationCap className="w-5 h-5 " />
+              <GraduationCap className="w-5 h-5 flex-shrink-0" />
               <span className="truncate">Professional</span>
             </button>
             <button
@@ -516,7 +516,7 @@ const ExperiencePage = () => {
                 setActiveTab("projects");
                 setExpandedIndex(null);
               }}
-              className={`relative z-10 px-6 md:px-10 py-3.5 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 text-sm md:text-base whitespace-nowrap w-full md:w-auto md:flex-initial ${
+              className={`relative z-10 px-6 md:px-10  py-3.5 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 text-sm md:text-base whitespace-nowrap w-full md:w-auto md:flex-initial ${
                 activeTab === "projects"
                   ? "bg-primary text-primary-foreground md:bg-transparent"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
