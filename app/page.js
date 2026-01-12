@@ -700,7 +700,7 @@ const HomePage = () => {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-              Client Reviews & Recommendations
+              Recommendations
             </h2>
             <p className="text-base text-muted-foreground">
               What colleagues and students say about my work
