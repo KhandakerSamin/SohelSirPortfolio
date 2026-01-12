@@ -110,7 +110,7 @@ const AboutPage = () => {
                     {/* Profile Image Container */}
                     <div className="relative w-64 h-64 rounded-2xl overflow-hidden border-4 border-background shadow-2xl group-hover:scale-105 transition-transform duration-500">
                       <Image
-                        src="/profile.jpeg"
+                        src="/profile.jpg"
                         alt="Md. Shohel Arman"
                         width={256}
                         height={256}
@@ -194,21 +194,13 @@ const AboutPage = () => {
               </div>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm an Assistant Professor and Lab In-charge of the Data Science Lab at Daffodil International University
-                  (DIU), with over eight years of experience in teaching, research, and data science.
-                  My work focuses on Computer Vision, Natural Language Processing, Machine Learning, Deep Learning,
-                  and Data Science — areas where cutting-edge technology meets real-world applications.
+                  I am an Assistant Professor with over eight years of experience in teaching and research within data-centric disciplines. I serve as the Lab In-Charge of the Data Science Lab at Daffodil International University, where I coordinate research activities and supervise undergraduate and graduate students working on methodologically rigorous projects. My work is primarily situated in Computer Vision, Natural Language Processing, Machine Learning, Deep Learning, and Data Science, with an emphasis on applied and empirical research.
                 </p>
                 <p>
-                  I'm passionate about turning theory into real-world impact and empowering students with the skill
-                  sets required to succeed in today's technology-driven world. As a Research Assistant at Washington University
-                  of Science & Technology (WUST), USA, I actively contribute to international collaborative research in
-                  Computer Vision and Machine Learning.
+                  In addition to my academic responsibilities, I am involved in international research collaboration as a Research Assistant at Washington University of Science & Technology. This role supports collaborative research efforts in Computer Vision and Machine Learning, particularly in developing and evaluating data-driven models for real-world problems.
                 </p>
                 <p>
-                  My research interests span Computer Vision, Natural Language Processing, Machine Learning, Deep Learning,
-                  Data Science, Software Engineering, Human-Computer Interaction, and Artificial Intelligence. I believe
-                  in fostering innovation and creating meaningful impact through technology and education.
+                 My broader research interests include Computer Vision, Natural Language Processing, Machine Learning, Deep Learning, Data Science, Software Engineering, Human–Computer Interaction, and Artificial Intelligence. My academic approach prioritizes careful problem formulation, reproducible experimentation, and the integration of research outcomes into teaching and student mentorship.
                 </p>
               </div>
             </div>
@@ -228,8 +220,8 @@ const AboutPage = () => {
                 
                 <div className="space-y-6">
                   <p className="text-foreground font-medium text-lg leading-relaxed">
-                    "My goal is to contribute to the advancement of data science and inspire the next generation of
-                    researchers and engineers to create meaningful impact through technology."
+                    "My goal is to advance data science through research and mentor future researchers and engineers toward impactful technological solutions.
+"
                   </p>
 
                   {/* Core Values */}

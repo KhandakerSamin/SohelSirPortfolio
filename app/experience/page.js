@@ -44,7 +44,7 @@ const ExperiencePage = () => {
       company: "Daffodil International University (DIU) - Savar, Bangladesh",
       period: "2024 - Present",
       type: "Academic",
-      icon: FlaskConical,
+      icon: BookOpen,
       responsibilities: [
         "Teaching undergraduate courses in Software Engineering",
         "Supervising undergraduate thesis and research projects",
