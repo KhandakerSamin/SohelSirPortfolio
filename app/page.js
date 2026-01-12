@@ -128,14 +128,12 @@ const HomePage = () => {
 
               {/* Role */}
               <h2 className="text-lg md:text-2xl text-primary font-medium leading-relaxed">
-                Assistant Professor • Research Assistant (WUST, USA) • AI & ML Expert
+                Assistant Professor • Research Assistant (WUST, USA) 
               </h2>
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                Passionate about teaching, research, and driving innovation in Computer Vision, Machine Learning, and Data Science.
-                With over eight years in academia, I lead research initiatives at DIU's Data Science Lab and collaborate
-                internationally at Washington University of Science & Technology (WUST), USA.
+               Academic researcher specializing in Computer Vision, Machine Learning, and Data Science, with over eight years of experience in higher education, research leadership, and international collaboration.
               </p>
 
               {/* CTA Buttons */}
@@ -187,7 +185,7 @@ const HomePage = () => {
                   {/* Image */}
                   <div className="relative w-full h-full p-4">
                     <Image
-                      src="/profile.jpeg"
+                      src="/profile.jpg"
                       alt="Md Shohel Arman"
                       width={384}
                       height={384}
@@ -202,15 +200,12 @@ const HomePage = () => {
                 </div>
 
                 {/* Floating Stats Cards */}
-                <div className="absolute -bottom-6 -left-6 bg-background/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-xl hidden md:block group-hover:translate-y-1 transition-transform duration-300">
+                {/* <div className="absolute -bottom-6 -left-6 bg-background/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-xl hidden md:block group-hover:translate-y-1 transition-transform duration-300">
                   <div className="text-3xl font-bold text-gradient">8+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
-                </div>
+                </div> */}
 
-                <div className="absolute -top-6 -right-6 bg-background/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-border/50 shadow-xl hidden md:block group-hover:translate-y-1 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-gradient">PhD</div>
-                  <div className="text-sm text-muted-foreground">Researcher</div>
-                </div>
+               
               </div>
             </div>
           </div>
