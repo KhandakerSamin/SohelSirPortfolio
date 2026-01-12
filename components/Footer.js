@@ -44,8 +44,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Md. Shohel Arman</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Assistant Professor & Data Science Researcher at Daffodil International University, passionate about
-              advancing education through technology and data-driven insights.
+               Assistant Professor and Lab In-Charge of the Data Science Lab at Daffodil International University, focused on advancing education through technology and data-driven insights.
             </p>
           </div>
 

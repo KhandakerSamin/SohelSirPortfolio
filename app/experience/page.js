@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Award,
   ExternalLink,
+  FolderKanban,
 } from "lucide-react";
 
 const ExperiencePage = () => {
@@ -298,6 +299,100 @@ const ExperiencePage = () => {
     },
   ];
 
+  const projects = [
+    {
+      title: "Deep Learning for Road Surface Damage Classification, Detection, Reporting and LLaMA Summary",
+      company: "AI Research Project",
+      period: "2024",
+      type: "Research",
+      icon: FlaskConical,
+      responsibilities: [
+        "A comprehensive solution for automated road inspection. This project combines Deep Learning Classification, Real-time Object Detection, and Generative AI (LLMs) to detect, analyze, and generate professional reports on road defects like potholes, cracks, and surface erosion.",
+      ],
+      skills: [
+        "Deep Learning",
+        "Computer Vision",
+        "Object Detection",
+        "LLMs",
+        "Generative AI",
+        "Image Classification",
+        "Real-time Processing",
+      ],
+    },
+    {
+      title: "MedAI Agent",
+      company: "Healthcare AI Platform",
+      period: "2024",
+      type: "Industry",
+      icon: FlaskConical,
+      responsibilities: [
+        "MedAI is an AI-powered healthcare platform that enables secure doctor-patient communication, appointment booking, medical record management, diagnostic report sharing, and intelligent dashboards for clinical decision support.",
+      ],
+      skills: [
+        "Healthcare AI",
+        "Natural Language Processing",
+        "Medical Records Management",
+        "Clinical Decision Support",
+        "Secure Communication",
+        "Dashboard Development",
+      ],
+    },
+    {
+      title: "API-Documentation-Q-A-Agent",
+      company: "Developer Tools",
+      period: "2024",
+      type: "Industry",
+      icon: BookOpen,
+      responsibilities: [
+        "A question-answering agent capable of parsing, embedding, and querying API documentation to provide accurate, context-aware responses based solely on document content.",
+      ],
+      skills: [
+        "Natural Language Processing",
+        "Document Parsing",
+        "Embeddings",
+        "Question Answering",
+        "API Documentation",
+        "Context-Aware AI",
+      ],
+    },
+    {
+      title: "SmartEdu Adaptive Learning Agent",
+      company: "Educational Technology",
+      period: "2024",
+      type: "Research",
+      icon: GraduationCap,
+      responsibilities: [
+        "An AI-powered personalized learning platform that analyzes student performance, identifies weak nesses, and dynamically generates customized quizzes, study paths, and explanations, ensuring privacy and teacher insights.",
+      ],
+      skills: [
+        "Educational AI",
+        "Adaptive Learning",
+        "Student Analytics",
+        "Personalized Content",
+        "Privacy-Preserving AI",
+        "Performance Analysis",
+      ],
+    },
+    {
+      title: "BizIntel Market Insight Agent",
+      company: "Business Intelligence",
+      period: "2024",
+      type: "Industry",
+      icon: Briefcase,
+      responsibilities: [
+        "A business intelligence agent that scrapes, embeds, and analyzes market data, competitor reports, and financial documents to generate structured insights, trends, and strategic recommendations",
+      ],
+      skills: [
+        "Business Intelligence",
+        "Market Analysis",
+        "Data Scraping",
+        "Financial Analysis",
+        "Competitive Intelligence",
+        "Strategic Planning",
+      ],
+    },
+  ];
+
   const getTypeStyle = (type) => {
     switch (type) {
       case "Academic":
@@ -349,7 +444,9 @@ const ExperiencePage = () => {
   const currentExperiences =
     activeTab === "professional"
       ? professionalExperiences
-      : industrialExperiences;
+      : activeTab === "industrial"
+      ? industrialExperiences
+      : projects;
 
   return (
     <div className="min-h-screen bg-background">
@@ -372,15 +469,18 @@ const ExperiencePage = () => {
 
         {/* Modern Toggle Switch */}
         <div
-          className="flex justify-center mb-16 animate-fade-in-up"
+          className="flex justify-center mb-16 animate-fade-in-up px-4"
           style={{ animationDelay: "0.1s" }}
         >
-          <div className="relative bg-card rounded-2xl p-2 border border-border shadow-lg inline-flex gap-2">
+          <div className="relative bg-card rounded-2xl p-2.5 border border-border shadow-lg inline-flex flex-wrap gap-2.5 max-w-full">
+            {/* Desktop sliding background */}
             <div
-              className={`absolute top-2 bottom-2 left-2 rounded-xl bg-primary transition-all duration-300 ease-out ${
+              className={`hidden md:block absolute top-2.5 bottom-2.5 rounded-xl bg-primary transition-all duration-300 ease-out ${
                 activeTab === "professional"
-                  ? "w-[calc(50%-0.25rem)]"
-                  : "w-[calc(50%-0.25rem)] translate-x-[calc(100%+0.5rem)]"
+                  ? "left-2.5 w-[calc(33.333%-0.833rem)]"
+                  : activeTab === "industrial"
+                  ? "left-2.5 w-[calc(33.333%-0.833rem)] translate-x-[calc(100%+0.625rem)]"
+                  : "left-2.5 w-[calc(33.333%-0.833rem)] translate-x-[calc(200%+1.25rem)]"
               }`}
             />
             <button
@@ -388,28 +488,42 @@ const ExperiencePage = () => {
                 setActiveTab("professional");
                 setExpandedIndex(null);
               }}
-              className={`relative z-10 px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`relative z-10 px-6 md:px-10 py-3.5 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 text-sm md:text-base whitespace-nowrap flex-1 md:flex-initial min-w-0 ${
                 activeTab === "professional"
-                  ? "text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-primary text-primary-foreground md:bg-transparent"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
-              <GraduationCap className="w-5 h-5" />
-              Professional Experience
+              <GraduationCap className="w-5 h-5 " />
+              <span className="truncate">Professional</span>
             </button>
             <button
               onClick={() => {
                 setActiveTab("industrial");
                 setExpandedIndex(null);
               }}
-              className={`relative z-10 px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`relative z-10 px-6 md:px-10 py-3.5 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 text-sm md:text-base whitespace-nowrap flex-1 md:flex-initial min-w-0 ${
                 activeTab === "industrial"
-                  ? "text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-primary text-primary-foreground md:bg-transparent"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
               }`}
             >
-              <Briefcase className="w-5 h-5" />
-              Industrial Experience
+              <Briefcase className="w-5 h-5 flex-shrink-0" />
+              <span className="truncate">Industrial</span>
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab("projects");
+                setExpandedIndex(null);
+              }}
+              className={`relative z-10 px-6 md:px-10 py-3.5 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 text-sm md:text-base whitespace-nowrap w-full md:w-auto md:flex-initial ${
+                activeTab === "projects"
+                  ? "bg-primary text-primary-foreground md:bg-transparent"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              }`}
+            >
+              <FolderKanban className="w-5 h-5 flex-shrink-0" />
+              <span className="truncate">Projects</span>
             </button>
           </div>
         </div>
@@ -458,7 +572,7 @@ const ExperiencePage = () => {
                 </div>
               </div>
             </>
-          ) : (
+          ) : activeTab === "industrial" ? (
             <>
               <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
                 <div className="flex items-center gap-4">
@@ -495,6 +609,48 @@ const ExperiencePage = () => {
                     <div className="text-3xl font-bold text-emerald-600">2</div>
                     <div className="text-sm text-muted-foreground">
                       Active Part-Time
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600">
+                    <FolderKanban className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-orange-600">5</div>
+                    <div className="text-sm text-muted-foreground">
+                      Major Projects
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-600">
+                    <FlaskConical className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-cyan-600">3</div>
+                    <div className="text-sm text-muted-foreground">
+                      AI/ML Projects
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="animate-fade-in-up bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-600">
+                    <Award className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-pink-600">2024</div>
+                    <div className="text-sm text-muted-foreground">
+                      Latest Year
                     </div>
                   </div>
                 </div>
@@ -699,12 +855,16 @@ const ExperiencePage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 {activeTab === "professional"
                   ? "Academic Excellence"
-                  : "Industry Innovation"}
+                  : activeTab === "industrial"
+                  ? "Industry Innovation"
+                  : "Innovation & Impact"}
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 {activeTab === "professional"
                   ? "My career reflects a strong dedication to teaching, research, and the development of students. Each role, from working in several technical positions through to leadership in academia, has enabled me to become more knowledgeable about education, technology, and research, and the connection between them, so that they work to create meaningful impact."
-                  : "Bridging academia and industry, I bring cutting-edge technical expertise to real-world applications. My industrial experience spans full-stack development, machine learning, DevOps, and mobile applications, demonstrating versatility and commitment to delivering innovative solutions that drive business growth and technological advancement."}
+                  : activeTab === "industrial"
+                  ? "Bridging academia and industry, I bring cutting-edge technical expertise to real-world applications. My industrial experience spans full-stack development, machine learning, DevOps, and mobile applications, demonstrating versatility and commitment to delivering innovative solutions that drive business growth and technological advancement."
+                  : "These projects represent the intersection of cutting-edge AI technology and real-world applications. From healthcare platforms to educational tools and business intelligence systems, each project demonstrates a commitment to leveraging artificial intelligence to solve complex problems and create meaningful impact across diverse domains."}
               </p>
             </div>
           </div>
