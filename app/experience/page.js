@@ -40,30 +40,6 @@ const ExperiencePage = () => {
       ],
     },
     {
-      title: "Thesis Supervisor",
-      company: "Daffodil International University (DIU) - Savar, Bangladesh",
-      period: "2024 - Present",
-      type: "Academic",
-      icon: BookOpen,
-      responsibilities: [
-        "Teaching undergraduate courses in Software Engineering",
-        "Supervising undergraduate thesis and research projects",
-        "Guiding students in Artificial Intelligence and Machine Learning",
-        "Supporting undergraduate learning in Data Science topics",
-        "Providing academic guidance and mentoring to students",
-      ],
-      skills: [
-        "Software Engineering",
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Data Science",
-        "Teaching",
-        "Thesis Supervision",
-        "Academic Mentoring",
-      ],
-      thesisLink: "https://docs.google.com/spreadsheets/d/1WeAZBrBClK2StbnB34KqnIYV7dYnZqAyevK8WApuAEc/edit?usp=sharing",
-    },
-    {
       title: "Research Assistant",
       company:
         "School of Information Technology, Washington University of Science & Technology (WUST), USA",
