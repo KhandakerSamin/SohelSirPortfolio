@@ -245,13 +245,13 @@ const HomePage = () => {
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.positions}</div>
-                <div className="text-muted-foreground text-sm md:text-base">Career Positions</div>
+                <div className="text-muted-foreground text-sm md:text-base">Project</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.toefl}</div>
-                <div className="text-muted-foreground text-sm md:text-base">TOEFL iBT Score</div>
+                <div className="text-muted-foreground text-sm md:text-base">Research</div>
               </div>
             </div>
           </div>
