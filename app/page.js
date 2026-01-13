@@ -6,6 +6,7 @@ import { ExternalLink, BookOpen, Star, Quote, ChevronLeft, ChevronRight } from "
 
 const HomePage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [activePublicationTab, setActivePublicationTab] = useState('publications');
   const [academicStats, setAcademicStats] = useState({
     years: 0,
     publications: 0,
@@ -551,7 +552,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Publications Section - UPGRADED WITH GOOGLE SCHOLAR */}
+      {/* Publications Section - WITH TABS */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -559,67 +560,146 @@ const HomePage = () => {
             <p className="text-lg text-muted-foreground">Latest publications and academic contributions</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {featuredPublications.map((pub, index) => (
-              <div
-                key={index}
-                className="group bg-card border border-border rounded-xl p-6 card-hover hover:border-primary/50 transition-all duration-300"
+          {/* Tabs */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex bg-muted rounded-lg p-1">
+              <button
+                onClick={() => setActivePublicationTab('publications')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  activePublicationTab === 'publications'
+                    ? 'bg-primary text-primary-foreground shadow-md'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${pub.type === 'Journal'
-                      ? 'bg-primary/10 text-primary border border-primary/20'
-                      : 'bg-accent/10 text-accent border border-accent/20'
-                    }`}>
-                    {pub.type} • {pub.year}
-                  </span>
-                  <a
-                    href={pub.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+                Publications
+              </button>
+              <button
+                onClick={() => setActivePublicationTab('supervising')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  activePublicationTab === 'supervising'
+                    ? 'bg-primary text-primary-foreground shadow-md'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Supervising Student
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Content */}
+          {activePublicationTab === 'publications' ? (
+            <>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                {featuredPublications.map((pub, index) => (
+                  <div
+                    key={index}
+                    className="group bg-card border border-border rounded-xl p-6 card-hover hover:border-primary/50 transition-all duration-300"
                   >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                    <div className="flex items-start justify-between mb-4">
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${pub.type === 'Journal'
+                          ? 'bg-primary/10 text-primary border border-primary/20'
+                          : 'bg-accent/10 text-accent border border-accent/20'
+                        }`}>
+                        {pub.type} • {pub.year}
+                      </span>
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary hover:text-primary-foreground"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+
+                    <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                      {pub.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                      {pub.description}
+                    </p>
+
+                    <a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                    >
+                      Read Full Paper
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="/publications"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  <BookOpen className="w-5 h-5" />
+                  Learn More
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="max-w-4xl mx-auto">
+                <div className="bg-card border border-border rounded-xl p-8 card-hover">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">Thesis Supervisor</h3>
+                      <p className="text-lg text-primary font-medium">Academic</p>
+                    </div>
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/20 text-primary">
+                      Current
+                    </span>
+                  </div>
+                  
+                  <p className="text-foreground font-medium mb-2">
+                    Daffodil International University (DIU) - Savar, Bangladesh
+                  </p>
+                  <p className="text-muted-foreground mb-6">
+                    2024 - Present
+                  </p>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Supervising and mentoring undergraduate students in their thesis research projects, 
+                    guiding them through the research process from topic selection to final presentation.
+                  </p>
                 </div>
+              </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                  {pub.title}
-                </h3>
-
-                <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-                  {pub.description}
-                </p>
-
+              <div className="text-center mt-8">
                 <a
-                  href={pub.link}
+                  href="https://docs.google.com/spreadsheets/d/1WeAZBrBClK2StbnB34KqnIYV7dYnZqAyevK8WApuAEc/edit"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
-                  Read Full Paper
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-5 h-5" />
+                  View Details
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </a>
               </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/publications"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-            >
-              <BookOpen className="w-5 h-5" />
-              Learn More
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
+            </>
+          )}
         </div>
       </section>
 
