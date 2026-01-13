@@ -66,6 +66,14 @@ const AboutPage = () => {
     },
     {
       year: "2024-Present",
+      title: "Thesis Supervisor",
+      institution: "Daffodil International University",
+      description:
+        "Supervising undergraduate thesis and research projects. Guiding students in Artificial Intelligence, Machine Learning, and Data Science topics.",
+      type: "work",
+    },
+    {
+      year: "2024-Present",
       title: "Research Assistant",
       institution: "Washington University of Science & Technology (WUST), USA",
       description:
