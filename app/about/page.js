@@ -191,7 +191,7 @@ const AboutPage = () => {
 
         {/* Bio Section */}
         <div className="mb-20 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-1 gap-8">
             {/* My Story */}
             <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
@@ -214,41 +214,7 @@ const AboutPage = () => {
             </div>
 
             {/* Mission Statement */}
-            <div className="bg-gradient-to-br from-primary/10 via-accent/10 to-purple-500/10 border border-primary/20 rounded-2xl p-8 relative overflow-hidden hover:shadow-xl transition-all duration-300">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">Mission Statement</h3>
-                </div>
-                
-                <div className="space-y-6">
-                  <p className="text-foreground font-medium text-lg leading-relaxed">
-                    "My goal is to advance data science through research and mentor future researchers and engineers toward impactful technological solutions.
-"
-                  </p>
-
-                  {/* Core Values */}
-                  <div className="space-y-3 pt-4 border-t border-border">
-                    <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide">Core Values</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {["Innovation", "Excellence", "Collaboration", "Impact"].map((value, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 bg-card text-foreground text-sm font-medium rounded-lg border border-border"
-                        >
-                          {value}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
 

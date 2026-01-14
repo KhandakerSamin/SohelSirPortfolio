@@ -16,7 +16,7 @@ const HomePage = () => {
 
   // Animate numbers on mount
   useEffect(() => {
-    const targets = { years: 8, publications: 5, positions: 7, toefl: 100 };
+    const targets = { years: 8, publications: 32, project: 15, supervising: 50 };
     const duration = 2000;
     const steps = 60;
     const stepDuration = duration / steps;
@@ -129,7 +129,7 @@ const HomePage = () => {
 
               {/* Role */}
               <h2 className="text-lg md:text-2xl text-primary font-medium leading-relaxed">
-                Assistant Professor • Research Assistant (WUST, USA) 
+                Assistant Professor(DIU) • Lab In Charge (DIU Data Sceince lab) .Research Assistant (WUST, USA)
               </h2>
 
               {/* Description */}
@@ -245,14 +245,14 @@ const HomePage = () => {
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.positions}</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.project}+</div>
                 <div className="text-muted-foreground text-sm md:text-base">Project</div>
               </div>
             </div>
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.toefl}</div>
-                <div className="text-muted-foreground text-sm md:text-base">Research</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.supervising}+</div>
+                <div className="text-muted-foreground text-sm md:text-base">Supervising Student</div>
               </div>
             </div>
           </div>
