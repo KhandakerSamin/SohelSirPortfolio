@@ -129,7 +129,7 @@ const HomePage = () => {
 
               {/* Role */}
               <h2 className="text-lg md:text-2xl text-primary font-medium leading-relaxed">
-                Assistant Professor(DIU) • Lab In Charge (DIU Data Sceince lab) .Research Assistant (WUST, USA)
+                Assistant Professor(DIU) • Lab In Charge (DIU Data Sceince lab) • Research Assistant (WUST, USA)
               </h2>
 
               {/* Description */}
@@ -246,7 +246,7 @@ const HomePage = () => {
             <div className="text-center">
               <div className="card-hover bg-background border border-border rounded-xl p-6">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{academicStats.project}+</div>
-                <div className="text-muted-foreground text-sm md:text-base">Project</div>
+                <div className="text-muted-foreground text-sm md:text-base">Projects</div>
               </div>
             </div>
             <div className="text-center">
